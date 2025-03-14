@@ -10,6 +10,9 @@ declare module 'hono' {
     Variables: {}
     Bindings: {}
   }
+  interface ContextVariableMap {
+    authUser?: AuthUser | null | undefined
+  }
   interface ContextRenderer {
     (content: string | Promise<string>, head?: Head):
       | Response

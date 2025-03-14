@@ -1,8 +1,9 @@
 import { css } from 'hono/css'
 import { createRoute } from 'honox/factory'
-import SignOutButton from '../islands/sign-out-button'
-import { session } from '../modules/auth'
-import Counter from '../islands/counter'
+import React from 'react'
+import { session } from '../../modules/auth'
+import { AdminRoot } from '../../islands/AdminRoot'
+// import { AdminRoot } from '../../admin/AdminRoot'
 
 
 export default createRoute(session, (c) => {
@@ -15,12 +16,8 @@ export default createRoute(session, (c) => {
   const name = authUser?.session?.user?.name ?? 'Hono'
 
   return c.render(
-    <div >
-      <h1>Hello, {name}!</h1>
-      <Counter />
-      <SignOutButton />
-      <pre>{JSON.stringify(authUser?.session, null, 2)}</pre>
-    </div>,
+    <AdminRoot/>,
+    // <div/>,
     { title: name }
   )
 })

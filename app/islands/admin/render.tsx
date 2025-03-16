@@ -4,8 +4,8 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./i18n";
 
-export function renderAdmin() {
-  const container = document.getElementById('root') as HTMLElement
+export function renderAdmin(id: string) {
+  const container = document.getElementById(id) as HTMLElement
   const root = createRoot(container)
 
   root.render(
